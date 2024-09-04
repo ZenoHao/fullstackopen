@@ -2,6 +2,8 @@
 exercises for fullstackopen.com
 
 ## Goals
-Learn frontend design
-Torture self with javascript
-Have fun
+- [x] Learn frontend design
+- [x] Torture self with javascript
+- [x] Have fun[1^].
+
+[^1]: This is a footnote test!
