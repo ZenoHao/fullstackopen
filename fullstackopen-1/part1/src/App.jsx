@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import Display from './Display'
+import Button from './Button'
 
 function test() {
     return -1;
@@ -7,23 +9,30 @@ function test() {
 function countUpdater(current) {
     return current + 1;
 }
-
 const App = () => {
-  const [ counter, setCounter ] = useState(test)
+  const [ counter, setCounter ] = useState(0)
 
+  const increaseByOne = () => setCounter(counter + 1)
 
-  const handleClick = () => {
-    console.log('clicked')
-    setCounter(countUpdater)
-  }
+  const decreaseByOne = () => setCounter(counter - 1)
+  const setToZero = () => setCounter(0)
 
   return (
     <div>
-      <div>{counter}</div>
+      <Display counter={counter}/>
 
-      <button onClick={handleClick}>
-        plus
-      </button>
+      <Button
+        onClick={increaseByOne}
+        text='plus'
+      />
+      <Button
+        onClick={setToZero}
+        text='zero'
+      />     
+      <Button
+        onClick={decreaseByOne}
+        text='minus'
+      />           
     </div>
   )
 }
