@@ -1,33 +1,30 @@
-import Header from './Header'
-import Content from './Content'
-import Total from './Total'
+import { useState } from 'react'
 
-const App = () => {
-    const course = {
-        name: 'Half Stack application development',
-        parts: [
-            {
-                name: 'Fundamentals of React',
-                exercises: 10
-            },
-            {
-                name: 'Using props to pass data',
-                exercises: 7
-            },
-            {
-                name: 'State of a component',
-                exercises: 14
-            }
-        ]
-    }
-
-    return (
-        <div>
-            <Header course={course}/>
-            <Content parts={course.parts}/>
-            <Total parts={course.parts}/>
-        </div>
-    )
+function test() {
+    return -1;
 }
 
+function countUpdater(current) {
+    return current + 1;
+}
+
+const App = () => {
+  const [ counter, setCounter ] = useState(test)
+
+
+  const handleClick = () => {
+    console.log('clicked')
+    setCounter(countUpdater)
+  }
+
+  return (
+    <div>
+      <div>{counter}</div>
+
+      <button onClick={handleClick}>
+        plus
+      </button>
+    </div>
+  )
+}
 export default App
